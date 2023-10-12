@@ -1,4 +1,4 @@
-package HomeWork6.OrdersBySolid;
+package HomeWork6;
 
 import java.util.Scanner;
 

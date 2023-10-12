@@ -1,4 +1,4 @@
-package HomeWork6.OrdersBySolid;
+package HomeWork6;
 
 public interface Saver {
     void SaveTo(Order order);
