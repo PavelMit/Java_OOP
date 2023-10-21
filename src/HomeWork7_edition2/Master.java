@@ -1,18 +1,16 @@
-package HomeWork7_edition2.HomeWork7;
+package HomeWork7_edition2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student implements Observer {
+public class Master implements Observer {
 
     private String name;
-    private int salary = 2000;
+    private int salary = 80000;
+    private JobType jobType1 = JobType.It;
+    private JobType jobType2 = JobType.Engineer;
     boolean free = true;
-
-    private JobType jobType1 = JobType.Service;
-    private JobType jobType2 = JobType.Intern;
-
-    public Student(String name) {
+    public Master(String name) {
         this.name = name;
     }
 
@@ -30,6 +28,7 @@ public class Student implements Observer {
     public int getSalary() {
         return salary;
     }
+
     @Override
     public List<JobType> getListOfJobType() {
         List<JobType> jobTypes = new ArrayList<JobType>();

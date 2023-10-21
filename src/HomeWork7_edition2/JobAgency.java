@@ -1,4 +1,4 @@
-package HomeWork7_edition2.HomeWork7;
+package HomeWork7_edition2;
 
 import java.util.ArrayList;
 import java.util.List;

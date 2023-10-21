@@ -1,4 +1,4 @@
-package HomeWork7_edition2.HomeWork7;
+package HomeWork7_edition2;
 
 public interface Publisher {
 
