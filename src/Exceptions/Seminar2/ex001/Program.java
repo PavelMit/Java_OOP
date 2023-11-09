@@ -53,8 +53,6 @@ public class Program {
             throw new NullPointerException("Массив должен существовать");
         }
 
-
-
         if (array.length != 4 || array[0].length != 4){
             throw new MyArraySizeException("Некорректный размер массива", array.length, array[0].length);
         }
