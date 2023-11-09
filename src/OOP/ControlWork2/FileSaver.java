@@ -15,6 +15,12 @@ public class FileSaver {
         this.robot = robot;
     }
 
+    /**
+     *
+     * @param id Id искомой для выдачи игрушки
+     * @throws IOException
+     * @throws IdException исключение, если не найдена игрушка по Id
+     */
     public void getToy(int id) throws IOException, IdException {
         try (FileWriter writer = new FileWriter("Toys", true)) {
             Toy toy = this.robot.findToy(id);

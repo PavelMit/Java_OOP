@@ -15,7 +15,6 @@ public class Program {
 
         ArrayList<Toy> list_of_toys = new ArrayList<Toy>(Arrays.asList(toy1, toy2, toy3, toy4, toy5, toy6)); //добавили все игрушки в список
 
-
         System.out.println();
         Robot robot1 = new Robot(list_of_toys); //добавили список в наш робот для розыгрыша. В нем первыми пробуют разыграться игрушки с наивысшей вероятностью выигрыша.
         Scanner sc = new Scanner(System.in);
@@ -25,7 +24,7 @@ public class Program {
         while (command != "end"){
             if (command.equals("show")){
                 System.out.println("Список всех игрушек для розыгрыша: ");
-                for (Toy toy: list_of_toys){ // вывели весь список игрушек
+                for (Toy toy: list_of_toys){ // вывели построчно весь список игрушек
                     System.out.println(toy.toString());
                 }
                 System.out.println();
@@ -36,24 +35,24 @@ public class Program {
                 System.out.println();
             }
             else if (command.equals("get")){
-                FileSaver fs = new FileSaver("toy", robot1);
+                FileSaver fs = new FileSaver("toy", robot1); // создали объект типа FileSaver
                 System.out.print("Введите id игрушки для выдачи: ");
-                int idToFind = Integer.parseInt(sc.nextLine());
-                fs.getToy(idToFind);
+                int idToFind = Integer.parseInt(sc.nextLine()); // запросили Id искомой игрушки
+                fs.getToy(idToFind); //выдали игрушку, вывели при успехе информацию об этом, записали информацию в файл "Toys"
             }
             else if (command.equals("wait")){
                 if (robot1.getWaitingList() == null || robot1.getWaitingList().size() == 0)
                     System.out.println("Лист ожидания для выдачи разыгранных игрушек пуст");
                 else {
                     System.out.println("Игрушки, ожидающие выдачи:");
-                    for (Toy toy: robot1.getWaitingList()){
+                    for (Toy toy: robot1.getWaitingList()){ // показали построчно лист ожидания выигранных игрушек
                         System.out.println(toy.toString());
                     }
                 }
                 System.out.println();
             }
             else System.out.print("Вы ввели не корректную команду, попробуйте еще раз:");
-            System.out.print("Введите новую команду: ");
+            System.out.print("Введите новую команду: "); //заходим на новый цикл
             command = sc.nextLine();
         }
          // еще раз вывели весь список игрушек

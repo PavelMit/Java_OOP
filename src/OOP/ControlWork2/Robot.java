@@ -17,7 +17,7 @@ public class Robot {
         return this.waitingList;
     }
 
-    public void addWaitingList(Toy toy) {
+    public void addWaitingList(Toy toy) { // метод добавления игрушки в лист ожидания
         ArrayList<Toy> tempList = new ArrayList<Toy>();
         if (this.waitingList != null) {
             tempList = this.waitingList;
@@ -36,8 +36,8 @@ public class Robot {
 
     public Toy winToy(){
         Random random = new Random();
-        PriorityQueue<Toy> priorityList = getPriorityList();
-        int counter = 1;
+        PriorityQueue<Toy> priorityList = getPriorityList(); // превращаем список игрушек в приорити лист
+        int counter = 1; // counter для визуализации количество попыток в розыгрыше
         while (true){
             int randomNum = random.nextInt(1, 101); // задание случайного числа от 1 до 100
             if (priorityList.size() == 0) priorityList = getPriorityList(); // перезапуск цикла с помощью переинициализации списка
@@ -45,7 +45,7 @@ public class Robot {
             System.out.printf("Попытка №%d. Достанется ли вам игрушка %s?\n", counter, currentToy.getName());
             if (currentToy.getPriority() >= randomNum){ // проверка на успех
                 this.toys.remove(currentToy); //удаляем игрушку из списка всех игрушек
-                this.addWaitingList(currentToy);
+                this.addWaitingList(currentToy);с // добавляем разыгранную игрушку в лист ожидания
                 return currentToy; // возврщаем текущую игрушку
             }
             System.out.println("Не повезло");
@@ -53,6 +53,12 @@ public class Robot {
         }
     }
 
+    /**
+     *
+     * @param id искомой игрушки для выдачи
+     * @return найденная игрушка
+     * @throws IdException игрушка с таким Id не найдена
+     */
     public Toy findToy(int id) throws IdException {
         if (this.waitingList == null)
             throw new NullPointerException("Не можем выдать игрушку, так как лист ожидания пуст\n");
